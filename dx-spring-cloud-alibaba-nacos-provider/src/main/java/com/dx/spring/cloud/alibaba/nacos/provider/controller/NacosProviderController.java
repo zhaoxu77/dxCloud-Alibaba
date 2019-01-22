@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class NacosProviderController {
 
-    // 注入配置文件上下文
     @Autowired
     private ConfigurableApplicationContext applicationContext;
 
@@ -24,7 +23,6 @@ public class NacosProviderController {
         return "Hello Nacos Discovery " + message;
     }
 
-    // 从上下文中读取配置
     @GetMapping(value = "/hi")
     public String sayHi() {
         return "Hello " + applicationContext.getEnvironment().getProperty("user.name");
