@@ -1,5 +1,6 @@
 package com.dx.spring.cloud.alibaba.rocketmq.provider;
 
+import com.dx.spring.cloud.alibaba.rocketmq.provider.service.MySource;
 import com.dx.spring.cloud.alibaba.rocketmq.provider.service.ProviderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -15,7 +16,7 @@ import org.springframework.cloud.stream.messaging.Source;
  * @create 2019-01-23 14:45
  **/
 @SpringBootApplication
-@EnableBinding({Source.class})
+@EnableBinding({MySource.class})
 public class RocketMQProviderApplication implements CommandLineRunner {
 
     @Autowired
@@ -33,5 +34,6 @@ public class RocketMQProviderApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         providerService.send("Hello RocketMQ");
+        providerService.send2("Hello RocketMQ2");
     }
 }

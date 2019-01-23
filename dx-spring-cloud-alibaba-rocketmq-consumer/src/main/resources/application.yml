@@ -9,7 +9,9 @@ spring:
         bindings:
           input: {consumer.orderly: true}
       bindings:
-        input: {destination: test-topic, content-type: text/plain, group: test-group, consumer.maxAttempts: 1}
+       # input: {destination: test-topic, content-type: text/plain, group: test-group, consumer.maxAttempts: 1}
+        input1: {destination: test-topic1, content-type: text/plain, group: test-group1, consumer.maxAttempts: 1}
+        input2: {destination: test-topic2, content-type: text/plain, group: test-group2, consumer.maxAttempts: 1}
 
 server:
   port: 9094

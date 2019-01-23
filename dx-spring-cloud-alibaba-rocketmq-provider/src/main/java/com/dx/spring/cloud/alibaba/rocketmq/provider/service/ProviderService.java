@@ -13,10 +13,21 @@ import org.springframework.stereotype.Service;
  **/
 @Service
 public class ProviderService {
-    @Autowired
-    private MessageChannel output;
+    //@Autowired
+    //private MessageChannel output;
 
-    public void send(String message) {
+    /*public void send(String message) {
         output.send(MessageBuilder.withPayload(message).build());
+    }*/
+
+    @Autowired
+    private MySource source;
+
+    public void send(String msg) throws Exception {
+        source.output1().send(MessageBuilder.withPayload(msg).build());
+    }
+
+    public void send2(String msg) throws Exception {
+        source.output2().send(MessageBuilder.withPayload(msg).build());
     }
 }
